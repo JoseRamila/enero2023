@@ -35,6 +35,6 @@ public class Test {
 
 
 		// Delete user
-		dao.deleteUser(4);
+		//dao.deleteUser(4);
 	}
 }
