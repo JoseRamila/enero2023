@@ -17,7 +17,8 @@ public class HibernateUtil {
 			{
 				StandardServiceRegistry standardRegistry = new StandardServiceRegistryBuilder()
 						//.configure("hibernate.cfg.xml").build();
-						.configure("hibernate.sqlite.cfg.xml").build();
+						//.configure("hibernate.sqlite.cfg.xml").build();
+						.configure("hibernate.mysql.cfg.xml").build();
 				
 				Metadata metaData = new MetadataSources(standardRegistry)
 						.getMetadataBuilder()
