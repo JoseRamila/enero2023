@@ -55,5 +55,14 @@ public class Usuario {
 		this.email = email;
 	}
 	private String email;
+	@Override
+	public String toString() {
+		return "Usuario{" +
+				"id=" + id +
+				", nombre='" + nombre + '\'' +
+				", password='" + password + '\'' +
+				", email='" + email + '\'' +
+				'}';
+	}
 
 }
