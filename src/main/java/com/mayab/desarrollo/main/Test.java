@@ -5,6 +5,9 @@ import com.mayab.desarrollo.persistencia.DAOUsers;
 //import com.mayab.desarrollo.services.UServices;
 import com.mayab.desarrollo.entities.Usuario;
 
+import javax.sound.midi.Soundbank;
+import java.util.List;
+
 public class Test {
 
 	public static void main(String[] args) {
@@ -27,14 +30,34 @@ public class Test {
 		//Create user
 		DAOUsers dao = new DAOUsers();
 		Usuario user = new Usuario();
-		user.setNombre("Jose");
-		user.setPassword("jose234");
-		user.setEmail("rami23@gmail");
+		user.setNombre("Cristian");
+		user.setPassword("cris123");
+		user.setEmail("cris@gmail.com");
 		int idUser = dao.createUser(user);
-		System.out.println("id = " + idUser);
+		user.setId(idUser);
+		System.out.println("id new= " + idUser);
+
+		//Find all
+		List<Usuario> users;
+		users = dao.findAll();
+		for(Usuario u : users){
+			System.out.println(u.toString());
+		}
+
+		user = dao.findByID(2);
+		System.out.println("\n Old password: " + user.getPassword());
+		user = dao.updatePassword(user,"new password");
+		System.out.println("\n New password: " + user.getPassword());
+
+		if(dao.deleteUser(2)){
+			System.out.println("Delete user with id '2'\n New list of users");
+			users = dao.findAll();
+			for (Usuario u: users){
+				System.out.println(u.toString());
+			}
+		}
 
 
-		// Delete user
-		//dao.deleteUser(4);
+
 	}
 }
