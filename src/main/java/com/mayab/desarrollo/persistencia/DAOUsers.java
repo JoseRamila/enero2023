@@ -3,7 +3,7 @@ package com.mayab.desarrollo.persistencia;
 import com.mayab.desarrollo.entities.Usuario;
 import com.mayab.desarrollo.main.HibernateUtil;
 import org.hibernate.Session;
-
+import javax.persistence.Query;
 import java.util.List;
 
 public class DAOUsers implements IDAO{
@@ -55,15 +55,36 @@ public class DAOUsers implements IDAO{
         session.close();
         return toUpdate;
     }
-    /*@Override
-    public  Usuario findbyName(String nombre){
+
+    public  Usuario findByName(String nombre){
         Session session = HibernateUtil.getSessionFactory().openSession();
         Query qry = (Query) session.createQuery("FROM Usuario WHERE nombre =:nombre").setParameter("nombre", nombre);
-        Usuario user =(Usuario) qry.getSingleResult();
+        Usuario user = null;
+        try{
+            user = (Usuario) qry.getSingleResult();
+        }
+        catch(Exception e) {
+            return null;
+        }
         System.out.println(user.toString());
         session.close();
         return user;
         }
-     */
+
+    public  Usuario findByEmail(String email) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Query qry = (Query) session.createQuery("FROM Usuario WHERE email =:email").setParameter("email", email);
+        Usuario user = null;
+        try{
+            user = (Usuario) qry.getSingleResult();
+        }
+        catch(Exception e) {
+            return null;
+        }
+        System.out.println(user.toString());
+        session.close();
+        return user;
+    }
+
 
 }

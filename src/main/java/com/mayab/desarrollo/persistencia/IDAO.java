@@ -10,5 +10,7 @@ public interface IDAO {
     public Usuario findByID(int id);
     public List<Usuario> findAll();
     public Usuario updatePassword(Usuario user, String nPassword);
+    public Usuario findByName(String name);
+    public Usuario findByEmail(String email);
 
 }
