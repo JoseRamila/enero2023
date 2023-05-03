@@ -45,4 +45,15 @@ public class UServices {
         }
         return result;
     }
+    public boolean changePassword(String name, String oldPass, String newPass){
+        Usuario usuario;
+        if(login(name, oldPass)){
+            usuario = dao.findByName(name);
+            dao.updatePassword(usuario, newPass);
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 }

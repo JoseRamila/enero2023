@@ -1,9 +1,10 @@
 package com.mayab.desarrollo.main;
 
-import com.mayab.desarrollo.vistas.*;
 import javax.swing.*;
+import com.mayab.desarrollo.vistas.LoginForm;
 
 public class TestView {
+
     public static void main(String[] args) {
         try{
 
@@ -15,4 +16,6 @@ public class TestView {
 
         }
     }
+
+
 }
